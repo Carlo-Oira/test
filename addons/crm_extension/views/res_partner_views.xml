@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="partner_inherit" model="ir.ui.view">
+        <field name="name">partner.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <label name="address_name" position="attributes">
+                <attribute name='string'>Student Address</attribute>
+            </label>
+            <field name="street" position="before">
+                <field name="address1" placeholder="Address 1"/>
+            </field>
+            <field name="street2" position="after">
+                <field name="municipality"/>
+            </field>
+            <field name="vat" position="after">
+                <field name="level"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="partner_tree_inherit" model="ir.ui.view">
+        <field name="name">partner.tree.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="email" position="attributes">
+                <attribute name='invisible'>True</attribute>
+            </field>
+            <field name="email" position="after">
+                <field name="level"/>
+            </field>
+            <field name="level" position="after">
+                <field name="address1"/>
+            </field>
+            <field name="address1" position="after">
+                <field name="municipality"/>
+            </field>
+            <field name="municipality" position="after">
+                <field name="street"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
